@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "Caracol 4 Chrome",
+        "description": "The name of the application"
+    },
+    "appDescription": {
+        "message": "Use Caracol from your Browser. (Built @hackreactor)",
+        "description": "The description of the application"
+    }
+}
