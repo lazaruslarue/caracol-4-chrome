@@ -13,7 +13,9 @@
   		"background": {
   			"scripts": [
   				"scripts/main.js",
-  				"scripts/chromereload.js"
+          "scripts/chromereload.js"
+          "lib/angular.js"
+  				"lib/angular-route.js"
   			]
   		}
   	}
