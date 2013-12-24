@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <div ng-controller="Main">{{ name }}
+    <div ng-controller="NewTabCtrl">{{ userBookmarksTree }}
+    {{ name }}
     </div>
+    <div ng-repeat="books in bookmarksTree">1 {{ books }} </div>
     <script src="lib/angular.js"></script>
     <script src="lib/angular-route.js"></script>
     <script src="scripts/index.js"></script>

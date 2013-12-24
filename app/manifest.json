@@ -17,6 +17,14 @@
     "chrome_url_overrides" : {
       "newtab": "tab.html"
     }, 
-    "background": "scripts/main.js"
+    "background": {
+    "scripts": [
+      "scripts/main.js", 
+      "scripts/index.js",
+      "scripts/controllers.js"
+      ],
+    "persistent": false
+    }
+    
     
   }
