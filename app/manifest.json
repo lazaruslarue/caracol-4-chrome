@@ -19,9 +19,12 @@
     }, 
     "background": {
     "scripts": [
+      "lib/angular.js", 
+      "lib/angular-route.js", 
       "scripts/main.js", 
       "scripts/index.js",
-      "scripts/controllers.js"
+      "scripts/controllers.js",
+      "scripts/services.js"
       ],
     "persistent": false
     }
