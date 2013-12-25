@@ -1,9 +1,11 @@
-angular.module('caracolExtension')
+angular.module('caracolExtension', ['bookmarkService'])
   .controller('NewTabCtrl', [
     '$scope', 
-    'bookMarkService', 
-    function($scope, bookMarkService){
+    'thing', 
+    function($scope){
       $scope.name = 'yo';
-      $scope.bookmarks = bookMarkService;
-      
-    }]); 
+      chrome.bookmarks.getTree(function(data){
+        $scope.$apply($scope.bookmarks = data);
+      })
+    }
+  ]); 
