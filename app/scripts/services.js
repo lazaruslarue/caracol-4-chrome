@@ -1,5 +1,5 @@
 angular.module('bookmarkService', [])
-  .factory('thing', ['$q', function($q){
-    
-  }]);
+  .factory('parser', function(){
+    return function(){console.log(arguments)}
+  });
   
