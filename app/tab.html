@@ -8,14 +8,14 @@
   <body>
     <div ng-controller="NewTabCtrl">
       <div ng-repeat="child in bookmarks" > 
-        <div ng-repeat-start="bookmark in child" ></div>
-          <div ng-if="bookmark.url" class="linkfield">
-            {{bookmark.title}}</br>
-              <input type='button' ng-click="style={color:'red'}" />{{bookmark.url}}
+        <div ng-repeat-start="bookmark in child" class="mark"></div>
+          
+          <div ng-if="bookmark.url" class="linkfield" ng-class="myVar">
+            <input type='checkbox' ng-model="myVar" ng-true-value="selected" ng-false-value="" />{{bookmark.title}}
+            <p>{{bookmark.url}}</p>
+            
           </div>
           <div ng-repeat-end></div>
-      
-          
       </div>
     </div>
     <script src="lib/angular.js"></script>

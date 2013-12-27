@@ -2,7 +2,12 @@ body {
     padding: 20px;
 }
 
+.mark{
+  padding: 1px;
+}
+
 .linkfield {
+  
   width: 350px;
   background-color: red;
 }
