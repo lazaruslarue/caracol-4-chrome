@@ -7,16 +7,14 @@
   </head>
   <body>
     <div ng-controller="NewTabCtrl">
-      <div ng-repeat="child in bookmarks">
-        <div ng-repeat-start="bookmark in child.children"></div>
-          <div ng-if="bookmark.url">
-            {{bookmark.title}}
-            <div >
-              <input type='button' ng-click="myStyle={color:'red'}" />{{bookmark.url}}
-            </div>
-
+      <div ng-repeat="child in bookmarks" > 
+        <div ng-repeat-start="bookmark in child" ></div>
+          <div ng-if="bookmark.url" class="linkfield">
+            {{bookmark.title}}</br>
+              <input type='button' ng-click="style={color:'red'}" />{{bookmark.url}}
           </div>
           <div ng-repeat-end></div>
+      
           
       </div>
     </div>

@@ -1,16 +1,18 @@
 angular.module('caracolExtension', ['bookmarkService'])
   .controller('NewTabCtrl', [
     '$scope', 
+    '$element', 
     'bookGetter', 
-    function($scope, bookmarkService){
+    function($scope, $element, bookmarkService){
       $scope.bookmarks = [];
       bookmarkService.getMarks(function(data){
-        for (var i in data[0].children){
-          console.log(data[0].children[i])
-          $scope.$apply($scope.bookmarks.push(data[0].children[i]));
-        }
+        
+          $scope.$apply(angular.forEach(data[0].children, function(val,key, col ){
+          $scope.bookmarks.push(val.children)
+        
+        }))
       });
       
-      // bookmarkService.parser($scope.bookmarks)
+
     }
   ]);

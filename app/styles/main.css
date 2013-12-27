@@ -1,3 +1,12 @@
 body {
     padding: 20px;
 }
+
+.linkfield {
+  width: 350px;
+  background-color: red;
+}
+
+.selected {
+  background-color: green;
+}
