@@ -7,9 +7,19 @@
   </head>
   <body>
     <div ng-controller="NewTabCtrl">
-      {{ bookmarks }}  {{name}}
+      <div ng-repeat="child in bookmarks">
+        <div ng-repeat-start="bookmark in child.children"></div>
+          <div ng-if="bookmark.url">
+            {{bookmark.title}}
+            <div >
+              <input type='button' ng-click="myStyle={color:'red'}" />{{bookmark.url}}
+            </div>
+
+          </div>
+          <div ng-repeat-end></div>
+          
+      </div>
     </div>
-    <div ng-repeat="children in bookmarks"> 111 {{ children }} </div>
     <script src="lib/angular.js"></script>
     <script src="lib/angular-route.js"></script>
     <script src="scripts/index.js"></script>
