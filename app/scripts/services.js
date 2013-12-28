@@ -1,5 +1,5 @@
 angular.module('bookmarkService', [])
-  .factory('bookGetter', function(){
+  .factory( 'bookGetter', function(){
     return {
       getMarks: function(callback) {
         chrome.bookmarks.getTree(function(data){

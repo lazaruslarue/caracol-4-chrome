@@ -7,11 +7,13 @@
   </head>
   <body>
     <div ng-controller="NewTabCtrl">
+      <button ng-click='submitUrls(exports)' >Caracol selected links</button>
+      <div>{{exports}}</div>
       <div ng-repeat="child in bookmarks" > 
         <div ng-repeat-start="bookmark in child" class="mark"></div>
           
           <div ng-if="bookmark.url" class="linkfield" ng-class="myVar">
-            <input type='checkbox' ng-model="myVar" ng-true-value="selected" ng-false-value="" />{{bookmark.title}}
+            <input type='checkbox' ng-change="queueUrl(bookmark.id, bookmark)" ng-model="myVar" ng-true-value="selected" ng-false-value="" />{{bookmark.title}}
             <p>{{bookmark.url}}</p>
             
           </div>
