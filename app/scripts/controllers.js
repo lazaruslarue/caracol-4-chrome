@@ -7,13 +7,24 @@ angular.module('caracolExtension', ['bookmarkService'])
       $scope.exports = {};
       $scope.bookmarks = [];
       
-      bookmarkService.getMarks( 
-        function(data){
-          $scope.$apply(angular.forEach(data[0].children, 
-            function(val,key, col ){
-              $scope.bookmarks.push(val.children)
-        }))
-      })
+      var traverseTreeWrapper = function(node){
+        var callback = function(node){$scope.bookmarks.push(node)};
+        traverseTree(node, callback);
+
+      }
+
+      var traverseTree = function(node, callback) {
+        if (node){
+          angular.forEach(node.children, function(v){
+            traverseTree(v, callback);
+          })
+          if (node.url){
+            callback(node);
+          }
+        }
+      }
+
+      bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
 
       $scope.queueUrl=function(id, obj) { // add this Url to the the JSON for export to Caracol server
         if ($scope.exports[id]){
