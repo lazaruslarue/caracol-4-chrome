@@ -1,6 +1,8 @@
 {
   "name": "caracol-chrome-app",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "angular-bootstrap": "~0.9.0"
+  },
   "devDependencies": {}
 }
