@@ -5,12 +5,15 @@ angular.module('caracolExtension', ['bookmarkService'])
     'bookGetter', 
     function($scope, $element, bookmarkService){
       $scope.exports = {};
-      $scope.bookmarks = [];
+      $scope.bookmarks = {};
+
       
       var traverseTreeWrapper = function(node){
-        var callback = function(node){$scope.bookmarks.push(node)};
+        var callback = function(node){
+          node['caracolSubmitStatus'] = 'userInputNeeded';
+          $scope.bookmarks[node.id]= node;
+        };
         traverseTree(node, callback);
-
       }
 
       var traverseTree = function(node, callback) {
@@ -26,9 +29,8 @@ angular.module('caracolExtension', ['bookmarkService'])
 
       bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
 
-      $scope.queueUrl=function(id, obj) { // add this Url to the the JSON for export to Caracol server
+      $scope.toggleUrlForSubmit=function(id, obj) { // add this Url to the the JSON for export to Caracol server
         if ($scope.exports[id]){
-          console.log ('blah ')
           delete $scope.exports[id];
         } else {
           $scope.exports[id] = obj

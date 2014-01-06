@@ -12,8 +12,8 @@
       <button ng-click='submitUrls(exports)' >Caracol selected links</button>
       <div>{{exports}}</div>
       <div ng-repeat-start="mark in bookmarks" class="mark" >  </div>
-        <div ng-if="mark.url" class="linkfield" ng-class="myVar">
-          <input type='checkbox' ng-change="toggleUrlForSubmit(mark.id, mark)" ng-model="myVar" ng-true-value="selected" ng-false-value="" />{{mark.title}}
+        <div ng-if="mark.url" class="btn btn-primary" ng-class="myVar">
+          <input type='checkbox' ng-change="toggleUrlForSubmit(mark.id, mark)" ng-model="myVar" ng-true-value="btn btn-success" ng-false-value="btn btn-danger" />{{mark.title}}
           <p>{{mark.url}}</p>
           
         </div>
