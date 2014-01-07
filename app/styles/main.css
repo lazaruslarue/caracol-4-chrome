@@ -2,16 +2,15 @@ body {
     padding: 20px;
 }
 
-.mark{
-  padding: 1px;
+#exportToCaracol {
+  float:left;
 }
 
-.linkfield {
-  
-  width: 350px;
-  background-color: red;
+#submitButton {
+  clear: left;
+  float: right;
 }
 
-.selected {
-  background-color: green;
+.mark {
+  clear:both;
 }

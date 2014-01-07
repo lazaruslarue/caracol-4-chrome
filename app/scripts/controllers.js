@@ -10,7 +10,7 @@ angular.module('caracolExtension', ['bookmarkService'])
       
       var traverseTreeWrapper = function(node){
         var callback = function(node){
-          node['caracolSubmitStatus'] = 'userInputNeeded';
+          node['caracolSubmitStatus'] = 'alert-info';
           $scope.bookmarks[node.id]= node;
         };
         traverseTree(node, callback);
@@ -29,12 +29,13 @@ angular.module('caracolExtension', ['bookmarkService'])
 
       bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
 
-      $scope.toggleUrlForSubmit=function(id, obj) { // add this Url to the the JSON for export to Caracol server
+      $scope.toggleUrlSubmitStatus=function(id, obj, index) { // add this Url to the the JSON for export to Caracol server
         if ($scope.exports[id]){
           delete $scope.exports[id];
         } else {
           $scope.exports[id] = obj
         }
+        bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
       }
 
       $scope.submitUrls = function(objForExport) {
