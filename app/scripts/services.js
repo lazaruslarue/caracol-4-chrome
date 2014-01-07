@@ -14,11 +14,9 @@ angular.module('bookmarkService', [])
         } else if ( status === "alert-danger" ) {
           node.caracolSubmitStatus = "alert-info"
         }
-        
-
-        // if submit, change to noSubmit
-
-        // if noSubmit, change to waiting
+      }, 
+      submitUrls: function(exportObj){
+        console.log('posting this to Caracol', exportObj )
       }
     }
   });

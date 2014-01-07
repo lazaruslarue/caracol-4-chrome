@@ -38,13 +38,8 @@ angular.module('caracolExtension', ['bookmarkService'])
         bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
       }
 
-      $scope.submitUrls = function(objForExport) {
-        console.log('posting this to Caracol', objForExport )
-        // $http({
-        //   method: 'POST',
-        //   data: objForExport
-        // })
-
+      $scope.submitUrlsWrapper = function(){
+        bookmarkService.submitUrls($scope.exports);
       }
     }
   ])

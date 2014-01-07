@@ -14,3 +14,7 @@ body {
 .mark {
   clear:both;
 }
+
+.markTitle {
+  font-weight: bold;
+}
