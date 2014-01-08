@@ -11,7 +11,7 @@
       <div ng-repeat-start="mark in bookmarks" class="mark">  </div>
         
         <div 
-          ng-click="toggleUrlSubmitStatus(mark.id, mark, $index)" 
+          ng-click="toggleUrlSubmitStatus(mark.id, mark, mark.caracolSubmitStatus)" 
           id="mark.id" 
           class="alert" 
           ng-class="mark.caracolSubmitStatus"

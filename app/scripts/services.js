@@ -14,6 +14,7 @@ angular.module('bookmarkService', [])
         } else if ( status === "alert-danger" ) {
           node.caracolSubmitStatus = "alert-info"
         }
+        
       }, 
       submitUrls: function(exportObj){
         console.log('posting this to Caracol', exportObj )
