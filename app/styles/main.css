@@ -4,6 +4,7 @@ body {
 
 #exportToCaracol {
   float:left;
+  clear: both;
 }
 
 #submitButton {

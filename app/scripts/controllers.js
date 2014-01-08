@@ -1,12 +1,9 @@
-angular.module('caracolExtension', ['bookmarkService'])
-  .controller('NewTabCtrl', [
-    '$scope', 
-    '$element', 
-    'bookGetter', 
-    function($scope, $element, bookmarkService){
+angular.module('caracolExtension')
+  .controller('NewTabCtrl', [ 
+            '$scope', '$state', 'bookGetter',   'exportToCaracol', 'processedBookmarks',
+    function($scope,  $state,   bookmarkService, exportToCaracol,   processedBookmarks){ 
       $scope.exports = {};
       $scope.bookmarks = {};
-
       
       var traverseTreeWrapper = function(node){
         var callback = function(node){
@@ -15,7 +12,6 @@ angular.module('caracolExtension', ['bookmarkService'])
         };
         traverseTree(node, callback);
       }
-
       var traverseTree = function(node, callback) {
         if (node){
           angular.forEach(node.children, function(v){
@@ -41,14 +37,15 @@ angular.module('caracolExtension', ['bookmarkService'])
       $scope.submitUrlsWrapper = function(){
         bookmarkService.submitUrls($scope.exports);
       }
+      $state.go('newTab.exportToCaracol')
     }
   ])
-  // .controller('ExportControl', [
-  //   function($scope) {
-  //     $scope.exports = {}
+  .controller('firstRun', [
+    function($scope) {
+      $scope.exports = {}
 
-  //   }
-  // ])
+    }
+  ])
 
 
 
