@@ -1,5 +1,5 @@
 angular.module('bookmarkService', [])
-  .factory( 'bookGetter', function(){
+  .factory( 'bookmarkUtils', function(){
     return {
       getMarks: function(callback) {
         chrome.bookmarks.getTree(function(data){
@@ -17,6 +17,16 @@ angular.module('bookmarkService', [])
       }, 
       submitUrls: function(exportObj){
         console.log('posting this to Caracol', exportObj )
+      },
+      traverseTree: function traverseTree(node, callback) {
+        if (node){
+          angular.forEach(node.children, function(v){
+            traverseTree(v, callback);
+          })
+          if (node.url){
+            callback(node);
+          }
+        }
       }
     }
   });

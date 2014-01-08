@@ -9,55 +9,60 @@ angular.module('caracolExtension', [
       .state('newTab', {
         url: '/start',
         templateUrl: 'tab.html',
-        controller: [ '$scope', '$state', 'bookGetter',
-            function($scope,  $state,   bookmarkService, exportToCaracol,   processedBookmarks){ 
-              $scope.exports = {};
-              $scope.bookmarks = {};
-              
-              var traverseTreeWrapper = function(node){
-                var callback = function(node){
-                  node['caracolSubmitStatus'] = 'alert-info';
-                  $scope.bookmarks[node.id]= node;
-                };
-                traverseTree(node, callback);
-              }
-              var traverseTree = function(node, callback) {
-                if (node){
-                  angular.forEach(node.children, function(v){
-                    traverseTree(v, callback);
-                  })
-                  if (node.url){
-                    callback(node);
-                  }
-                }
-              }
-
-              bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
-
-              $scope.toggleUrlSubmitStatus=function(id, obj, index) { // add this Url to the the JSON for export to Caracol server
-                if ($scope.exports[id]){
-                  delete $scope.exports[id];
-                } else {
-                  $scope.exports[id] = obj
-                }
-                bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
-              }
-
-              $scope.submitUrlsWrapper = function(){
-                bookmarkService.submitUrls($scope.exports);
-              }
-              $state.go('newTab.processedBookmarks')
+        controller: [ '$scope', '$state', 'bookmarkUtils',
+          function(   $scope,  $state,   bookmarkService){ 
+            $scope.exports = {};
+            $scope.bookmarks = {};
+            
+            var traverseTreeWrapper = function(node){
+              var callback = function(node){
+                node['caracolSubmitStatus'] = 'alert-info';
+                $scope.bookmarks[node.id]= node;
+              };
+              bookmarkService.traverseTree(node, callback);
             }
+            // var traverseTree = function(node, callback) {
+            //   if (node){
+            //     angular.forEach(node.children, function(v){
+            //       traverseTree(v, callback);
+            //     })
+            //     if (node.url){
+            //       callback(node);
+            //     }
+            //   }
+            // }
+
+            bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
+
+            $scope.toggleUrlSubmitStatus=function(id, obj, index) { // add this Url to the the JSON for export to Caracol server
+              if ($scope.exports[id]){
+                delete $scope.exports[id];
+              } else {
+                $scope.exports[id] = obj
+              }
+              bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
+            }
+
+            $scope.submitUrlsWrapper = function(){
+              bookmarkService.submitUrls($scope.exports);
+              // $state.go('newTab.exportToCaracol')
+            }
+          $state.go('newTab.exportToCaracol')
+
+          }
         ]
-      })
-      .state('newTab.processedBookmarks', {
-        url: '/start',
-        templateUrl: 'views/processedBookmarks.html'
       })
       .state('newTab.exportToCaracol', {
         url: '/start',
         templateUrl: 'views/exportToCaracol.html'
-        
+        // controller: ['$scope',  '$state', function($scope,  $state) {
+        //             // body...
+                    
+        // }]
+      })
+      .state('newTab.processedBookmarks', {
+        url: '/start',
+        templateUrl: 'views/processedBookmarks.html'
       })
       // .state('newTab.caracolUserBar', {
       //   url: '/caracolUserBar',
