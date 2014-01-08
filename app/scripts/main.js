@@ -12,46 +12,61 @@ angular.module('caracolExtension', [
         templateUrl: 'tab.html',
         controller: [ '$scope', '$state', 
           function(   $scope,  $state){ 
-            $state.go('newTab.export')
+            $state.go('caracol')
           }
         ]
       })
-      .state('newTab.export', {
-        url: '/start/export',
-        templateUrl: 'views/export.html',
-        controller: [ '$scope', '$state', 'bookmarkUtils',
-          function(   $scope,  $state,   bookmarkService){ 
+      .state('caracol', {
+        url: '/start',
+        templateUrl: 'views/main.html',
+        controller: [ '$scope', '$state', 
+          function(   $scope,  $state){ 
             $scope.exports = {};
             $scope.bookmarks = {};
-            
-            var traverseTreeWrapper = function(node){
-              var callback = function(node){
-                node['caracolSubmitStatus'] = 'alert-info';
-                $scope.bookmarks[node.id]= node;
-              };
-              bookmarkService.traverseTree(node, callback);
-            }
-
-            bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
-
-            $scope.toggleUrlSubmitStatus=function(id, obj) { // add this Url to the the JSON for export to Caracol server
-              bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
-              if (  obj.caracolSubmitStatus === "alert-danger" ||
-                    obj.caracolSubmitStatus === "alert-info" ) {
-                delete $scope.exports[id];
-              } else {
-                $scope.exports[id] = obj
-              }
-            }
-
-            $scope.submitUrlsWrapper = function(){
-              bookmarkService.submitUrls($scope.exports);
-              $state.go('newTab.processed', {exports: $scope.exports})
-            }
+            $state.go('caracol.export')
           }
         ]
       })
-      .state('newTab.processed', {
+      .state('caracol.export', {
+        url: '/start/export',
+        views: {
+          "export": {
+            templateUrl: 'views/export.html',
+            controller: [ '$scope', '$state', 'bookmarkUtils',
+              function(   $scope,  $state,   bookmarkService){ 
+               
+                
+                var traverseTreeWrapper = function(node){
+                  var callback = function(node){
+                    node['caracolSubmitStatus'] = 'alert-info';
+                    $scope.bookmarks[node.id]= node;
+                  };
+                  bookmarkService.traverseTree(node, callback);
+                }
+
+                bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
+
+                $scope.toggleUrlSubmitStatus=function(id, obj) { // add this Url to the the JSON for export to Caracol server
+                  bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
+                  if (  obj.caracolSubmitStatus === "alert-danger" ||
+                        obj.caracolSubmitStatus === "alert-info" ) {
+                    delete $scope.exports[id];
+                  } else {
+                    $scope.exports[id] = obj
+                  }
+                }
+
+                $scope.submitUrlsWrapper = function(){
+                  bookmarkService.submitUrls($scope.exports);
+                  $state.go('caracol.processed')
+                }
+              }
+            ]
+            
+          }
+        }
+      })
+      .state('caracol.processed', {
         url: '/start/processed',
         views: {
           "export": {
@@ -69,15 +84,15 @@ angular.module('caracolExtension', [
         },
          
       })
-      // .state('newTab.caracolUserBar', {
+      // .state('caracol.caracolUserBar', {
       //   url: '/caracolUserBar',
       //   templateUrl: 'views/caracolUserBar.html'
       // })
-      // .state('newTab.userBookmarks', {
+      // .state('caracol.userBookmarks', {
       //   url: '/userBookmarks',
       //   templateUrl: 'views/userBookmarks.html'
       // })
-      // .state('newTab.suggestedBookmarks', {
+      // .state('caracol.suggestedBookmarks', {
       //   url: '/suggestedBookmarks',
       //   templateUrl: 'views/suggestedBookmarks.html'
       // })
