@@ -1,5 +1,6 @@
 angular.module('caracolExtension', [
     'bookmarkService', 
+    'caracolExtension.controllers',
     'ui.router'
     ])
   .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
@@ -11,13 +12,13 @@ angular.module('caracolExtension', [
         templateUrl: 'tab.html',
         controller: [ '$scope', '$state', 
           function(   $scope,  $state){ 
-            $state.go('newTab.exportToCaracol')
+            $state.go('newTab.export')
           }
         ]
       })
-      .state('newTab.exportToCaracol', {
-        url: '/start',
-        templateUrl: 'views/exportToCaracol.html',
+      .state('newTab.export', {
+        url: '/start/export',
+        templateUrl: 'views/export.html',
         controller: [ '$scope', '$state', 'bookmarkUtils',
           function(   $scope,  $state,   bookmarkService){ 
             $scope.exports = {};
@@ -30,16 +31,6 @@ angular.module('caracolExtension', [
               };
               bookmarkService.traverseTree(node, callback);
             }
-            // var traverseTree = function(node, callback) {
-            //   if (node){
-            //     angular.forEach(node.children, function(v){
-            //       traverseTree(v, callback);
-            //     })
-            //     if (node.url){
-            //       callback(node);
-            //     }
-            //   }
-            // }
 
             bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
 
@@ -55,16 +46,28 @@ angular.module('caracolExtension', [
 
             $scope.submitUrlsWrapper = function(){
               bookmarkService.submitUrls($scope.exports);
-              // $state.go('newTab.exportToCaracol')
+              $state.go('newTab.processed', {exports: $scope.exports})
             }
-          $state.go('newTab.exportToCaracol')
-
           }
         ]
       })
-      .state('newTab.processedBookmarks', {
-        url: '/start',
-        templateUrl: 'views/processedBookmarks.html'
+      .state('newTab.processed', {
+        url: '/start/processed',
+        views: {
+          "export": {
+            templateUrl: 'views/suggested.html', 
+            controller: [ '$scope', '$state', 'bookmarkUtils',
+              function(   $scope,  $state,   bookmarkService){ 
+            }]
+          },
+          "processed": {
+            templateUrl: 'views/processed.html',
+            controller: [ '$scope', '$state', 'bookmarkUtils',
+              function(   $scope,  $state,   bookmarkService){ 
+            }]
+          }
+        },
+         
       })
       // .state('newTab.caracolUserBar', {
       //   url: '/caracolUserBar',
