@@ -19,3 +19,9 @@ body {
 .markTitle {
   font-weight: bold;
 }
+
+#right {
+  float:right;
+  width: 400px;
+  background-color:aliceblue;
+}
