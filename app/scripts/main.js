@@ -30,7 +30,10 @@ angular.module('caracolExtension', [
       .state('caracol.export', {
         url: '/start/export',
         views: {
-          "export": {
+          "head": {
+            templateUrl: 'views/header.html'
+          },
+          "body": {
             templateUrl: 'views/export.html',
             controller: [ '$scope', '$state', 'bookmarkUtils',
               function(   $scope,  $state,   bookmarkService){ 
@@ -69,13 +72,14 @@ angular.module('caracolExtension', [
       .state('caracol.processed', {
         url: '/start/processed',
         views: {
-          "export": {
-            templateUrl: 'views/suggested.html', 
-            controller: [ '$scope', '$state', 'bookmarkUtils',
-              function(   $scope,  $state,   bookmarkService){ 
-            }]
+          "head": {
+            templateUrl: 'views/header.html'
           },
-          "processed": {
+          "body": {
+            templateUrl: 'views/suggested.html'
+            
+          },
+          "foot": {
             templateUrl: 'views/processed.html',
             controller: [ '$scope', '$state', 'bookmarkUtils',
               function(   $scope,  $state,   bookmarkService){ 
