@@ -1,9 +1,9 @@
 angular.module('caracolExtension', [
-    'bookmarkService', 
+    'services', 
     'caracolExtension.controllers',
     'ui.router'
     ])
-  .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider, $http) {
     $urlRouterProvider.otherwise('/start');
     $stateProvider
       .state('newTab', {
@@ -46,15 +46,16 @@ angular.module('caracolExtension', [
           },
           "focus": {
             templateUrl: 'views/suggested.html',
-            controller: 'getSuggestions'
+            controller: 'fetchmyrecommendations'
           },
           "right": {
-            templateUrl: 'views/userBookmarks.html'
+            templateUrl: 'views/userBookmarks.html', 
+            controller: 'fetchmyclippings'
           },
           "foot": {
             templateUrl: 'views/processed.html',
-            controller: [ '$scope', '$state', 'bookmarkUtils',
-              function(   $scope,  $state,   bookmarkService){ 
+            controller: [ '$scope', '$state', 'servicefactory',
+              function(   $scope,  $state,   services){ 
             }]
           }
         },

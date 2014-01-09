@@ -6,20 +6,21 @@ angular.module('caracolExtension.controllers',[])
       $scope.bookmarks = {};
     }
   ])
-  .controller('firstRun', [ '$scope', '$state', 'bookmarkUtils',
-    function(   $scope,  $state,   bookmarkService){ 
+  .controller('firstRun', [ '$scope', '$state', 'servicefactory',
+    function(   $scope,  $state,   services){ 
       var traverseTreeWrapper = function(node){
         var callback = function(node){
           node['caracolSubmitStatus'] = 'alert-info';
           $scope.bookmarks[node.id]= node;
         };
-        bookmarkService.traverseTree(node, callback);
+        services.traverseTree(node, callback);
       }
-
-      bookmarkService.getMarks( function(data){$scope.$apply(traverseTreeWrapper(data[0]))} )
+      
+      var cb = function(data){$scope.$apply(traverseTreeWrapper(data[0]))}
+      services.getMarks( cb );
 
       $scope.toggleUrlSubmitStatus=function(id, obj) { // add this Url to the the JSON for export to Caracol server
-        bookmarkService.toggleShading(obj.caracolSubmitStatus, obj); 
+        services.toggleShading(obj.caracolSubmitStatus, obj); 
         if (  obj.caracolSubmitStatus === "alert-danger" ||
               obj.caracolSubmitStatus === "alert-info" ) {
           delete $scope.exports[id];
@@ -29,14 +30,29 @@ angular.module('caracolExtension.controllers',[])
       }
 
       $scope.submitUrlsWrapper = function(){
-        bookmarkService.submitUrls($scope.exports);
+        services.submitUrls($scope.exports);
         $state.go('caracol.processed')
       }
     }
   ])
-  .controller('getSuggestions',['$scope', '$state', 'bookmarkUtils',
-    function($scope, $state, bookmarkService) {
-      // make call to caracol server to get the shit... 
+  .controller('fetchmyrecommendations',['$scope', '$state', 'servicefactory', 'servicefactory',
+    function($scope, $state, services) {
+      // get recommendations from caracol server  
+      $scope.myrecommendations = {};
+    }
+  ])
+  .controller('fetchmyclippings',['$scope', '$state', 'servicefactory',
+    function($scope, $state, services ) {
+      console.log('controller running')
+      // get clippings from caracol server  
+      $scope.myclippings = {};
+      var urlPortion = '/fetchmyclippings?batchSize=11&lastId=0'
+      var cb = function(data) {
+        $scope.myclippings = data;
+        console.log('greatness acquired ', data);
+      }
+      services.getfromserver(cb, urlPortion);
+      
     }
   ])
 

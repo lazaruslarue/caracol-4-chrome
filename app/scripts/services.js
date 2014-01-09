@@ -1,5 +1,5 @@
-angular.module('bookmarkService', [])
-  .factory( 'bookmarkUtils', function(){
+angular.module('services', [])
+  .factory( 'servicefactory', function($http){
     return {
       getMarks: function(callback) {
         chrome.bookmarks.getTree(function(data){
@@ -19,6 +19,7 @@ angular.module('bookmarkService', [])
       submitUrls: function(exportObj){
         console.log('posting this to Caracol', exportObj )
       },
+      
       traverseTree: function traverseTree(node, callback) {
         if (node){
           angular.forEach(node.children, function(v){
@@ -28,12 +29,20 @@ angular.module('bookmarkService', [])
             callback(node);
           }
         }
+      }, 
+      getfromserver: function(callback, requestType) {
+        $http({
+          method: 'GET',
+          url: 'http://caracol.cloudapp.net' + requestType
+        })
+        .success(function(data){
+          callback(data);
+        })
+        .error(function(err, status){
+          console.log("error: ",err, " status: ", status);
+        })
+        console.log('service running')
       }
     }
   })
-  .factory( 'serverCall', function($http) {
-    $http({
-      method: 'GET',
-      url: 'http://caracol.cloudapp.net/'
-    })
-  })
+  

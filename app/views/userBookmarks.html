@@ -1,4 +1,4 @@
-  <h2>Great, these are the links you've submitted:</h2>
+  <h3>Chrome bookmarks you've submitted:</h3>
   <div ng-repeat-start="mark in exports" class="mark">  </div>
     <div class="alert" ng-class="mark.caracolSubmitStatus">
       <p class="markTitle">{{mark.title}}</p>
@@ -6,4 +6,14 @@
     </div>
     <div class="btn-group" ng-if="mark.url" >
     </div>
+  <div ng-repeat-end></div>
+
+<h3>Links you've submitted to Caracol:</h3>
+  <div ng-repeat-start="mark in myclippings" class="mark">  </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h3 class="panel-title">{{mark.clipping.title}}</h3></div>
+      <div class="panel-body">{{mark.clipping.uri}}</div>
+    </div>
+    <!-- <div class="btn-group" ng-if="mark.clipping.uri" >
+    </div> -->
   <div ng-repeat-end></div>
