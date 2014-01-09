@@ -10,10 +10,14 @@
       "bookmarks", 
       "cookies"
     ],
-  	"icons": {
-  		"16": "images/icon-16.png",
-  		"128": "images/icon-128.png"
-  	},
+    "browser_action": {
+      "default_icon": {
+        "19": "images/caracol4.png",
+        "38": "images/caracol3.png"
+      },
+      "default_title": "caracol 4 chrome",
+      "default_popup": "popup.html"
+    },
     "content_security_policy": "script-src 'self'; object-src 'self'",
     "chrome_url_overrides" : {
       "newtab": "tab.html"

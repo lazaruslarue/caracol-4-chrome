@@ -6,11 +6,11 @@ angular.module('caracolExtension.controllers',[])
       $scope.bookmarks = {};
     }
   ])
-  .controller('firstRun', [ '$scope', '$state', 'servicefactory',
+  .controller('firstrun', [ '$scope', '$state', 'servicefactory',
     function(   $scope,  $state,   services){ 
       var traverseTreeWrapper = function(node){
         var callback = function(node){
-          node['caracolSubmitStatus'] = 'alert-info';
+          node['caracolSubmitStatus'] = 'panel-info';
           $scope.bookmarks[node.id]= node;
         };
         services.traverseTree(node, callback);
@@ -21,8 +21,8 @@ angular.module('caracolExtension.controllers',[])
 
       $scope.toggleUrlSubmitStatus=function(id, obj) { // add this Url to the the JSON for export to Caracol server
         services.toggleShading(obj.caracolSubmitStatus, obj); 
-        if (  obj.caracolSubmitStatus === "alert-danger" ||
-              obj.caracolSubmitStatus === "alert-info" ) {
+        if (  obj.caracolSubmitStatus === "panel-danger" ||
+              obj.caracolSubmitStatus === "panel-info" ) {
           delete $scope.exports[id];
         } else {
           $scope.exports[id] = obj

@@ -8,8 +8,8 @@ body {
 }
 
 #submitButton {
-  clear: left;
-  float: right;
+  /*clear: left;
+  float: right;*/
 }
 
 .mark {
@@ -27,6 +27,8 @@ body {
   padding-bottom: 70px;
 }
 #focus {
+  float: left;
+  max-width: 400px; 
 }
 
 /*

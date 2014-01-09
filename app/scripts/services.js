@@ -7,12 +7,12 @@ angular.module('services', [])
         })
       },
       toggleShading: function(status, node) {
-        if ( status === "alert-info" ) {
-          node.caracolSubmitStatus = "alert-success"
-        } else if ( status === "alert-success" ) {
-          node.caracolSubmitStatus = "alert-danger"
-        } else if ( status === "alert-danger" ) {
-          node.caracolSubmitStatus = "alert-info"
+        if ( status === "panel-info" ) {
+          node.caracolSubmitStatus = "panel-success"
+        } else if ( status === "panel-success" ) {
+          node.caracolSubmitStatus = "panel-danger"
+        } else if ( status === "panel-danger" ) {
+          node.caracolSubmitStatus = "panel-info"
         }
 
       }, 

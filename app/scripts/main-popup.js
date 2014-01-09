@@ -6,7 +6,7 @@ angular.module('caracolExtension', [
   .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider, $http) {
     $urlRouterProvider.otherwise('/start');
     $stateProvider
-      .state('newTab', {
+      .state('popup', {
         url: '/start',
         templateUrl: 'tab.html',
         controller: [ '$scope', '$state', 
@@ -22,20 +22,24 @@ angular.module('caracolExtension', [
           function(   $scope,  $state){ 
             $scope.exports = {};
             $scope.bookmarks = {};
-            $state.go('caracol.export')
+            $state.go('caracol.popup')
           }
         ]
       })
-      .state('caracol.export', {
-        url: '/start/export',
+      .state('caracol.popup', {
+        url: '/start/popup',
         views: {
           "head": {
-            templateUrl: 'views/header.html'
+            template:'<h4 class="navbar">Your Caracol Clippings</h4>'
           },
           "focus": {
-            templateUrl: 'views/export.html',
-            controller: 'firstRun'
-          }
+            templateUrl: 'views/popup.html',
+            controller: 'fetchmyclippings'
+          }, 
+          // "right": {
+          //   templateUrl: 'views/export.html'
+            
+          // }
         }
       })
       .state('caracol.processed', {
@@ -74,3 +78,4 @@ angular.module('caracolExtension', [
       //   templateUrl: 'views/suggestedBookmarks.html'
       // })
 }]);
+
