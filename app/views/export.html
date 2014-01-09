@@ -1,16 +1,11 @@
 --> export.html
-
-  
   <h3>Click Your Bookmarks to Export Them To Caracol</h3>
   <div id="exportObject">
     <pre>{{exports}}</pre>  
   </div>
-  
   <button class="btn btn-primary btn-lg" ng-click="submitUrlsWrapper()" id="submitButton">Send these links to Caracol</button>
-  
   <span></span>
   <div ng-repeat-start="mark in bookmarks" class="mark">  </div>
-    
     <div 
       ng-click="toggleUrlSubmitStatus(mark.id, mark, mark.caracolSubmitStatus)" 
       id="mark.id" 
@@ -19,21 +14,7 @@
     >
       <p class="markTitle">{{mark.title}}</p>
       <p class="markUrl">{{mark.url}}</p>
-      
-      
     </div>
-
-
-
-      
     <div class="btn-group" ng-if="mark.url" >
-      <!-- <button type='button' class="btn btn-success" ng-class="mark.caracolSubmitStatus" ng-click="toggleUrlForSubmit(mark.id, mark)" ng-model="mark.caracolSubmitStatus" btn-radio="'userSubmit'"/>
-        Submit
-      </button>
-      <button type='button' class="btn btn-danger" ng-class="mark.caracolSubmitStatus"  ng-model="mark.caracolSubmitStatus" btn-radio='"noSubmit"'/>
-        Don't Submit
-      </button> -->
-      
-
     </div>
   <div ng-repeat-end></div>

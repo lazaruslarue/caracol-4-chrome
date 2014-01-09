@@ -1,5 +1,5 @@
-body {
-    padding: 20px;
+body { 
+  padding-top: 70px; 
 }
 
 #exportToCaracol {
@@ -24,4 +24,6 @@ body {
   float:right;
   width: 400px;
   background-color:aliceblue;
+}
+#focus {
 }

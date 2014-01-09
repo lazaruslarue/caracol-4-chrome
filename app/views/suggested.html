@@ -1,8 +1,14 @@
---> suggested.html
-
 We suggest these bookmarks:
-
-
-You've added these bookmarks:
-
-
+<div ng-repeat-start="mark in suggested" class="mark">  </div>
+    <div 
+      ng-click="toggleUrlSubmitStatus(mark.id, mark, mark.caracolSubmitStatus)" 
+      id="mark.id" 
+      class="alert" 
+      ng-class="mark.caracolSubmitStatus"
+    >
+      <p class="markTitle">{{mark.title}}</p>
+      <p class="markUrl">{{mark.url}}</p>
+    </div>
+    <div class="btn-group" ng-if="mark.url" >
+    </div>
+  <div ng-repeat-end></div>

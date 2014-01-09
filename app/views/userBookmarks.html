@@ -1,0 +1,9 @@
+  <h2>Great, these are the links you've submitted:</h2>
+  <div ng-repeat-start="mark in exports" class="mark">  </div>
+    <div class="alert" ng-class="mark.caracolSubmitStatus">
+      <p class="markTitle">{{mark.title}}</p>
+      <p class="markUrl">{{mark.url}}</p>
+    </div>
+    <div class="btn-group" ng-if="mark.url" >
+    </div>
+  <div ng-repeat-end></div>

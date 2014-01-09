@@ -34,6 +34,11 @@ angular.module('caracolExtension.controllers',[])
       }
     }
   ])
+  .controller('getSuggestions',['$scope', '$state', 'bookmarkUtils',
+    function($scope, $state, bookmarkService) {
+      // make call to caracol server to get the shit... 
+    }
+  ])
 
 
 
