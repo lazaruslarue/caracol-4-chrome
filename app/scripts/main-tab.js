@@ -65,17 +65,5 @@ angular.module('caracolExtension', [
         },
          
       })
-      // .state('caracol.caracolUserBar', {
-      //   url: '/caracolUserBar',
-      //   templateUrl: 'views/caracolUserBar.html'
-      // })
-      // .state('caracol.userBookmarks', {
-      //   url: '/userBookmarks',
-      //   templateUrl: 'views/userBookmarks.html'
-      // })
-      // .state('caracol.suggestedBookmarks', {
-      //   url: '/suggestedBookmarks',
-      //   templateUrl: 'views/suggestedBookmarks.html'
-      // })
 }]);
 
