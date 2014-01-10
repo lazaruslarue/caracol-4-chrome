@@ -11,15 +11,16 @@ body {
   background-color: #61D8A2;
   color:white;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .mark {
   clear:both;
 }
 
-.markTitle {
+/*.markTitle {
   font-weight: bold;
-}
+}*/
 
 #right {
   float:right;
@@ -31,7 +32,7 @@ body {
 }
 #focus {
   float: left;
-  max-width: 400px; 
+  max-width: 700px; 
   padding-left: 10px; 
   padding-right: 10px; 
 }
