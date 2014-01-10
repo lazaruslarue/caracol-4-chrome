@@ -1,2 +1,2 @@
-![logo](https://github.com/MrSpothawk/caracol-4-chrome/blob/master/app/images/caracol3.png)&nbsp;[caracol 4 chrome](http://caracol.cloudapp.net/) - a chrome extension for the caracol app
+![logo](https://raw2.github.com/MrSpothawk/caracol-4-chrome/master/app/images/caracol3.png)&nbsp;[caracol 4 chrome](http://caracol.cloudapp.net/) - a chrome extension for the caracol app
 =================================================================================
