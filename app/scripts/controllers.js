@@ -31,8 +31,6 @@ angular.module('caracolExtension.controllers',[])
           $scope.exports[id] = obj
         }
       }
-
-      
     }
   ])
   .controller('fetchmyrecommendations',['$scope', '$state', 'servicefactory', 'servicefactory',
