@@ -40,7 +40,7 @@ angular.module('caracolExtension.controllers',[])
       console.log('recommendation controller running')
       // get clippings from caracol server  
       $scope.recommendations = {};
-      var urlPortion = '/fetchrecommendations?batchSize=11&lastId=0'
+      var urlPortion = '/fetchmyrecommendations?batchSize=11&lastId=0'
       var cb = function(data) {
         $scope.recommendations = data;
         console.log('greatness acquired ', data);
