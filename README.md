@@ -25,11 +25,11 @@ Make sure to [log-in](http://caracol.cloudapp.net/#/login) in to your Caracol ac
     
 Open your Chrome browser. Head to the settings page for [extensions](chrome://extensions/).
 
-->![enable developer mode](https://raw2.github.com/MrSpothawk/caracol-4-chrome/master/docs/developermode.png)<-
+![enable developer mode](https://raw2.github.com/MrSpothawk/caracol-4-chrome/master/docs/developermode.png)
 
 Make sure you've checked "Developer Mode" on the upper right corner. Then "Load unpacked extension..." and open the <code>app</code> directory in your newly cloned repo. 
 
--> ![installed successfully](https://raw2.github.com/MrSpothawk/caracol-4-chrome/master/docs/installsuccess.png) <-
+![installed successfully](https://raw2.github.com/MrSpothawk/caracol-4-chrome/master/docs/installsuccess.png)
 
 When you see the handome orange snail, you'll know you've successfully installed the extension.
 
