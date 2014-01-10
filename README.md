@@ -45,12 +45,10 @@ This extension is built with AngularJS. I also mixed in Angular-UI & Angular-Boo
 
 ##<a name="challenges"></a>Challenges
 
-Technical notes: 
- 
 * Since this is a browser extension, there are no files served to the user. So, I used [angular-ui](https://github.com/angular-ui/ui-router) to enable <code>$stateProvider</code> based UI routing & nested views without <code>$route</code>.
 * Using Multiple Named Views enabled a lot of flexibility in the way the page was loaded, but I think there's a long way to go in terms of minimizing the code.
 * Chrome provides access to the <code>code.bookmarks</code> asynchronously. This made handling the views a little bit harder until I found used a [clever trick](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#note-about-using-state-within-a-template) to pass <code>$state</code> and <code>$scope</code> around the code much more easily. 
-* Mixing Angular, Angular-UI-Router, and Bootstrap for Angular turned out to complicate things a lot. 
+* Mixing Angular, Angular-UI-Router, and Bootstrap for Angular turned out to complicate things a lot. In the end, it certainly turned out to be worth learning how to mix them up. 
 * I used the <code>ui-sref</code> directive to enable the user to choose their <code>.state</code> in the header of the popup. Here's some info about [state links](https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-sref). 
 
 ##<a name="license"></a>License
