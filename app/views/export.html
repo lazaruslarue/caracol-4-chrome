@@ -1,5 +1,11 @@
+<button 
+  class="btn btn-lg" 
+  ng-click="submitUrlsWrapper()"
+  id="submitButton"
+  >
+  Send these links to Caracol
+</button>
 <h3>We'll send these to Caracol for processing:</h3>
-<!-- <p>(hint: just click to remove them)</p> -->
 <div  ng-repeat-start="mark in exports"
       ng-click="toggleUrlSubmitStatus(mark.id, mark, mark.caracolSubmitStatus)">
 </div>

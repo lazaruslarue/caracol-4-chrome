@@ -1,9 +1,12 @@
 angular.module('caracolExtension.controllers',[])
   .controller('exportCtrl', [ 
-            '$scope', '$state',
-    function($scope,  $state){ 
-      $scope.exports = {};
-      $scope.bookmarks = {};
+            '$scope', '$state','servicefactory',
+    function($scope,  $state, services){ 
+      $scope.submitUrlsWrapper = function(){
+        console.log('tests')
+        services.submitUrls($scope.exports);
+        $state.go('caracol.processed')
+      }
     }
   ])
   .controller('firstrun', [ '$scope', '$state', 'servicefactory',
@@ -29,16 +32,21 @@ angular.module('caracolExtension.controllers',[])
         }
       }
 
-      $scope.submitUrlsWrapper = function(){
-        services.submitUrls($scope.exports);
-        $state.go('caracol.processed')
-      }
+      
     }
   ])
   .controller('fetchmyrecommendations',['$scope', '$state', 'servicefactory', 'servicefactory',
-    function($scope, $state, services) {
-      // get recommendations from caracol server  
-      $scope.myrecommendations = {};
+    function($scope, $state, services ) {
+      console.log('recommendation controller running')
+      // get clippings from caracol server  
+      $scope.recommendations = {};
+      var urlPortion = '/fetchrecommendations?batchSize=11&lastId=0'
+      var cb = function(data) {
+        $scope.recommendations = data;
+        console.log('greatness acquired ', data);
+      }
+      services.getfromserver(cb, urlPortion);
+      
     }
   ])
   .controller('fetchmyclippings',['$scope', '$state', 'servicefactory',

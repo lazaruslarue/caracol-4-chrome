@@ -1,5 +1,5 @@
 body { 
-  padding-top: 70px; 
+  
 }
 
 #exportToCaracol {
@@ -7,9 +7,10 @@ body {
   clear: both;
 }
 
-#submitButton {
-  /*clear: left;
-  float: right;*/
+.btn {
+  background-color: #61D8A2;
+  color:white;
+  margin-bottom: 10px;
 }
 
 .mark {
@@ -25,15 +26,24 @@ body {
   width: 400px;
   background-color:aliceblue;
   padding-bottom: 70px;
+  padding-left: 10px; 
+  padding-right: 10px; 
 }
 #focus {
   float: left;
   max-width: 400px; 
+  padding-left: 10px; 
+  padding-right: 10px; 
 }
 
-/*
+.navbar{
+  background-color: #FFEED8;
+  padding-left: 10px; 
+  padding-right: 10px; 
+  line-height: 50px;
+}
 .container.navbar-wrapper{margin-bottom:0;width:auto}
-.navbar-inner{border-radius:0;margin:-20px 0}
+.navbar-inner{border-radius:0;margin:-20px 0;}
 .navbar .brand{font-size:24px;font-family:'Signika Negative',sans-serif;text-shadow:none;color:#ff9000}
 .navbar-fixed-top .navbar-inner,.navbar-static-top .navbar-inner{-webkit-box-shadow:none !important;box-shadow:none !important}
 .navbar-inner{border:none;background-image:none;background-color:#ffeed8}
@@ -44,4 +54,3 @@ body {
 .navbar .nav > li.active > a.recNavButton,.navbar .nav > li.active > a.recNavButton:hover{background-color:#ffac40}
 .navbar .nav > li > a.clipNavButton{color:#61d8a2}
 .navbar .nav > li > a.recNavButton{color:#ffac40}
-*/

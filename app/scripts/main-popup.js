@@ -30,17 +30,19 @@ angular.module('caracolExtension', [
         url: '/start/popup',
         views: {
           "head": {
-            template:'<nav\
-             style="\
-              position: fixed;\
-              top: 0;\
-              width:100%;\
-              background-color:white;\
-              border: 1px;\
-              ">\
-                <img style="position: fixed; right:0;" src="images/caracol3.png">\
-                <h5>Your Caracol Clippings</h5>\
-              </nav>'
+            templateUrl: 'views/popup-head.html'
+          },
+          "focus": {
+            templateUrl: 'views/popup.html',
+            controller: 'fetchmyclippings'
+          }
+        }
+      })
+      .state('suggestions', {
+        url: '/start/popup',
+        views: {
+          "head": {
+            templateUrl: 'views/popup-head.html'
           },
           "focus": {
             templateUrl: 'views/popup.html',

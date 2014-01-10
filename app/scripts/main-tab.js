@@ -37,8 +37,8 @@ angular.module('caracolExtension', [
             controller: 'firstrun'
           }, 
           "right": {
-            templateUrl: 'views/export.html'
-            
+            templateUrl: 'views/export.html',
+            controller: 'exportCtrl'
           }
         }
       })
