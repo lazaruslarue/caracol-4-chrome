@@ -46,8 +46,8 @@ angular.module('caracolExtension.controllers',[])
       services.getfromserver(cb, urlPortion);
     }
   ])
-  .controller('fetchmyrecommendations',['$scope', '$state', '$sce', 'servicefactory',
-    function($scope, $state, $sce, services ) {
+  .controller('fetchmyrecommendations',['$scope', '$state',  'servicefactory',
+    function($scope, $state, services ) {
       console.log('recommendation controller running')
       // get clippings from caracol server  
       /* commented for presentation purposes: 

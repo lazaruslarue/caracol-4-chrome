@@ -23,6 +23,7 @@ angular.module('caracolExtension', [
           function(   $scope,  $state){ 
             $scope.exports = {};
             $scope.bookmarks = {};
+            
             $state.go('caracol.clippings')
           }
         ]
@@ -34,20 +35,20 @@ angular.module('caracolExtension', [
             templateUrl: 'views/popup-head.html'
           },
           "focus": {
-            templateUrl: 'views/popup.html',
-            controller: 'fetchmyclippings'
+            templateUrl: 'views/popup-clippings.html',
+            controller:  'fetchmyclippings'
           }
         }
       })
-      .state('caracol.suggestions', {
+      .state('caracol.recommendations', {
         url: '/start/popup',
         views: {
           "head": {
             templateUrl: 'views/popup-head.html'
           },
           "focus": {
-            templateUrl: 'views/popup.html',
-            controller: 'fetchmyrecommendations'
+            templateUrl: 'views/popup-recommendations.html',
+            controller:  'fetchmyrecommendations'
           }
         }
       })

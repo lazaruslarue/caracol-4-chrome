@@ -1,8 +1,9 @@
 We suggest these bookmarks:
 <div ng-repeat-start="mark in recommendations" class="mark">  </div>
     <div id="mark.id" class="panel panel-info">
-      <div class="panel-heading "><a ng-href="mark.clipping.url">{{mark.title}}</a></div>
+      <div class="panel-heading "><a ng-href="mark.short_url">{{mark.title}}</a></div>
       <div class="panel-body">{{mark.excerpt}}</div>
+      {{mark.short_url}}
     </div>
 <div ng-repeat-end></div>
 

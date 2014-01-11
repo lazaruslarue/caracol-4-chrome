@@ -1,0 +1,9 @@
+<h4>Recommendations</h4>
+<div ng-repeat-start="mark in recommendations" class="mark">  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a ng-href="mark.short_url"> {{mark.title}}</h4></a>
+    </div>
+    <div class="panel-body">{{mark.excerpt}}</div>
+  </div>
+<div ng-repeat-end></div>

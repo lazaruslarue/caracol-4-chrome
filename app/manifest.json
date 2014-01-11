@@ -6,7 +6,8 @@
     "default_locale": "en",
   	"permissions": [
       "http://caracol.cloudapp.net/",
-      "http://api.readability.com/", 
+      "http://api.readability.com/",
+      "http://www.rdd.me/**", 
       "bookmarks", 
       "cookies"
     ],
@@ -22,7 +23,7 @@
       "default_title": "caracol 4 chrome",
       "default_popup": "popup.html"
     },
-    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "content_security_policy": "script-src 'self'; object-src 'self' ",
     "chrome_url_overrides" : {
       "newtab": "tab.html"
     }
