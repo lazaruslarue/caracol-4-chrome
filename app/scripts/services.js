@@ -1,5 +1,5 @@
 angular.module('services', [])
-  .factory( 'servicefactory', function($http){
+  .factory( 'servicefactory', function($http, $sce){
     return {
       getMarks: function(callback) {
         chrome.bookmarks.getTree(function(data){
@@ -19,7 +19,6 @@ angular.module('services', [])
       submitUrls: function(exportObj){
         console.log('posting this to Caracol', exportObj )
       },
-      
       traverseTree: function traverseTree(node, callback) {
         if (node){
           angular.forEach(node.children, function(v){

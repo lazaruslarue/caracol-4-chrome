@@ -1,7 +1,8 @@
 angular.module('caracolExtension', [
     'services', 
     'caracolExtension.controllers',
-    'ui.router'
+    'ui.router',
+    'ngSanitize'
     ])
   .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider, $http) {
     $urlRouterProvider.otherwise('/start');
@@ -46,7 +47,7 @@ angular.module('caracolExtension', [
           },
           "focus": {
             templateUrl: 'views/popup.html',
-            controller: 'fetchmyclippings'
+            controller: 'fetchmyrecommendations'
           }
         }
       })

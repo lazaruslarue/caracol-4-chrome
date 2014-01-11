@@ -10,7 +10,9 @@
   <div class="panel panel-primary">
     <div class="panel-heading"><h4 class="panel-title">{{mark.clipping.title}}</h4></div>
     <div class="panel-body">{{mark.clipping.uri}}</div>
-    <ng-include src="mark.clipping.content"></div>
+    <!-- <ng-include src="mark.clipping.content"></div> -->
+    <div ng-bind-html="mark.clipping.content"></div>
+
 
   </div>
 <div ng-repeat-end></div>

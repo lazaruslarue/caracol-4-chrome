@@ -1,14 +1,8 @@
 We suggest these bookmarks:
-<div ng-repeat-start="mark in suggested" class="mark">  </div>
-    <div 
-      ng-click="toggleUrlSubmitStatus(mark.id, mark, mark.caracolSubmitStatus)" 
-      id="mark.id" 
-      class="alert" 
-      ng-class="mark.caracolSubmitStatus"
-    >
-      <p class="markTitle">{{mark.title}}</p>
-      <p class="markUrl">{{mark.url}}</p>
+<div ng-repeat-start="mark in recommendations" class="mark">  </div>
+    <div id="mark.id" class="panel panel-info">
+      <div class="panel-heading "><a ng-href="mark.clipping.url">{{mark.title}}</a></div>
+      <div class="panel-body">{{mark.excerpt}}</div>
     </div>
-    <div class="btn-group" ng-if="mark.url" >
-    </div>
-  <div ng-repeat-end></div>
+<div ng-repeat-end></div>
+
